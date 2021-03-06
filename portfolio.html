@@ -9,7 +9,13 @@
 			.font {font-family: 'Verdana'}
 			.boldfont {font=font-family: 'Verdana'; text}
 			.button {background-color: white; border: 1px solid black; color: black; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; font-size: 20px; transition-duration: 0.4s; cursor: pointer;}
-			.navbar-custom {background-color: #0e1c3a;}
+			.button1:hover {background-color: black; color: white;}
+
+
+			.nav {background-color: #0e1c3a;}
+			.nav a {float: center; display: block; color: white; text-align: center; font-family: Verdana;}
+			.nav a:hover {background-color: #7a97b3; color: white;}
+			.nav a:active {background-color: #7a97b3; color: black;}
 		</style>
 	
 	<meta charset="utf-8"/>	
@@ -18,38 +24,31 @@
    	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 	</head>
-
-	<nav class="navbar navbar-expand-lg navbar-custom">
-		  <div class="container-fluid navbar-text">
-		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-		      <span class="navbar-toggler-icon"></span>
-		    </button>
-		    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-		      <ul class="navbar-nav">
-		        <li class="nav-item">
-		          <a class="nav-link active" aria-current="page" href="https:///lee-erica.github.io/index.html">Home</a>
-		        </li>
-		        <li class="nav-item dropdown">
-		          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-		            Portfolio
-		          </a>
-		          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-		            <li><a class="dropdown-item" href="https:///lee-erica.github.io/project1.html">Using K-Means Clustering on my Spotify Data</a></li>
-		            <!-- <li><a class="dropdown-item" href="#">INFO 3401 - INFORMATION EXPLORATION</a></li> -->
-		            <!-- <li><a class="dropdown-item" href="#">INFO 2201 - COMPUTATIONAL REASONING 2</a></li> -->
-		          </ul>
-		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link" href="https:///lee-erica.github.io/resume.html">Resume</a>
-		        </li>
-		        <li class="nav-item">
-		          <a class="nav-link" href="https:///lee-erica.github.io/contact.html">Contact</a>
-		        </li>
-		      </ul>
-		    </div>
-		  </div>
+		<nav class="navbar navbar-expand-lg py-md-3 nav shadow-lg p-3 mb-5">
+			<div class="container-fluid navbar-text">
+			    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+			      <ul class="navbar-nav nav-pills">
+			        <li class="nav-item">
+			          <a class="nav-link" href="https://lee-erica.github.io/index.html">Home</a>
+			        </li>
+			        <li class="nav-item">
+			          <a class="nav-link" href="https:///lee-erica.github.io/resume.html">About Me</a>
+			        </li>
+			        <li class="nav-item dropdown nav">
+			          <a class="nav-link dropdown-toggle active" href="https://lee-erica.github.io/portfolio.html" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			            Portfolio
+			          </a>
+			          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			            <li><a class="dropdown-item active" style="color:black" href="https://lee-erica.github.io/project1.html">Using K-Means Clustering on my Spotify Data</a></li>
+			          </ul>
+			        </li>
+			        <li class="nav-item">
+			          <a class="nav-link" href="https://lee-erica.github.io/contact.html">Contact</a>
+			        </li>
+			      	</ul>
+			  	</div>
+			</div>
 		</nav>
-
 	<body>
 		<br>
 

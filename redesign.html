@@ -11,12 +11,44 @@
       .font {font-family: 'Verdana'}
       .pfont {font-family: 'Verdana'; font-size: 16px;}
       .title {font-family: 'Georgia'; font-size: 50px; text-align: center;}
+
+      .nav {background-color: #0e1c3a;}
+      .nav a {float: center; display: block; color: white; text-align: center; font-family: Verdana;}
+      .nav a:hover {background-color: #7a97b3; color: white;}
+      .nav a:active {background-color: #7a97b3; color: black;}
     </style>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <title>Weekly Assignment 6</title>
   </head>
+
+    <nav class="navbar navbar-expand-lg py-md-3 nav shadow-lg p-3 mb-5">
+      <div class="container-fluid navbar-text">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav nav-pills">
+              <li class="nav-item">
+                <a class="nav-link" href="https://lee-erica.github.io/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https:///lee-erica.github.io/resume.html">About Me</a>
+              </li>
+              <li class="nav-item dropdown nav">
+                <a class="nav-link dropdown-toggle" href="https://lee-erica.github.io/portfolio.html" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Portfolio
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" style="color:black" href="https://lee-erica.github.io/project1.html">Using K-Means Clustering on my Spotify Data</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://lee-erica.github.io/contact.html">Contact</a>
+              </li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+
   <body>
     <br>
     <h1 class="title font">Redesign + Inspiration</h1>
@@ -29,6 +61,21 @@
       <a href="https://lee-erica.github.io/inspiration.html">Here are portfolios I was inspired by for this assignment.</a>
       <br>
       <a href="https://lee-erica.github.io/index-wa5.html">Here are my pages from last week.</a>
+      <br>
+      <br>
+    </p>
+
+    <h4 class="font padding">Changes I Made for WA6:</h3>
+    <p class="pfont padding">
+      <b>Home Page:</b> I added a <a href="https://getbootstrap.com/docs/5.0/components/navbar/"> navbar </a> to my homepage (and the rest of the pages) to better organize my website.  
+      <br>
+      <b>About Me:</b> I added <a href="https://getbootstrap.com/docs/5.0/layout/columns/">columns</a> to this page because I wanted to show my resume and bio next to each other. 
+      <br>
+      <b>Portfolio:</b> I added a <a href="https://getbootstrap.com/docs/5.0/components/badge/">badge</a> on this page because I wanted to label the project with the semester I completed it in. 
+      <br>
+      <b>Project:</b> I added a <a href="https://getbootstrap.com/docs/5.0/components/breadcrumb/">breadcrumb</a> to the top of the page to inform the user where they are in the website, as that page is not easily visible from the navbar. 
+      <br>
+      <b>Contact:</b> I added a <a href="https://getbootstrap.com/docs/5.0/forms/form-control/">form</a> to this page so that people could get in contact with me by leaving their email and a message. 
     </p>
 
   </body>
