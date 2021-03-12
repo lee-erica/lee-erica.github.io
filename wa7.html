@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      .pgph {text-indent: 40px; padding-right: 100px; padding-left: 100px}
+      .padding {padding-right: 140px; padding-left: 140px}
+      .center {text-align: center;}
+      .font {font-family: 'Verdana'}
+      .pfont {font-family: 'Verdana'; font-size: 16px;}
+      .title {font-family: 'Georgia'; font-size: 50px; text-align: center;}
+
+      .nav {background-color: #0e1c3a;}
+      .nav a {float: center; display: block; color: white; text-align: center; font-family: Verdana;}
+      .nav a:hover {background-color: #7a97b3; color: white;}
+      .nav a:active {background-color: #7a97b3; color: black;}
+    </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Weekly Assignment 7</title>
+  </head>
+
+  <body>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+    <br>
+    <h1 class="font center">Version 1</h1>
+
+    <canvas id="myChart" width="350" height="165"></canvas>
+    <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: ['Twitter', 'Instagram', 'Reddit', 'TikTok', 'Snapchat', 'Messages', 'Spotify'],
+        datasets: [{
+            label: 'Week of 2/28',
+            data: [330, 300, 233, 214, 160, 156, 200],
+            backgroundColor: ['rgba(75, 192, 192, 0.5)'],
+        }, {
+            label: 'Week of 2/21',
+            data: [300, 242, 259, 30, 173, 290, 255],
+            backgroundColor: ['rgba(153, 102, 255, 0.5)'],
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    </script>
+
+    <br>
+
+    <h1 class="font center">Version 2</h1>
+
+    <canvas id="myChart2" width="300" height="165"></canvas>
+    <script>
+    var ctx = document.getElementById('myChart2').getContext('2d');
+    var myChart2 = new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: ['Twitter', 'Instagram', 'Reddit', 'TikTok', 'Snapchat', 'Messages', 'Spotify'],
+        datasets: [{
+            label: 'Week of 2/28',
+            data: [330, 300, 233, 214, 160, 156, 200],
+            backgroundColor: ['rgba(75, 192, 192, 0.35)'],
+            borderWidth: 1,
+            borderColor: ['rgba(75, 192, 192, 1)']
+        }, {
+            label: 'Week of 2/21',
+            data: [300, 242, 259, 30, 173, 290, 255],
+            backgroundColor: ['rgba(153, 102, 255, 0.35)'],
+            borderWidth: 1,
+            borderColor: ['rgba(153, 102, 255, 1)']
+        }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Weekly Screen Time in Minutes by App',
+        fontSize: 26
+        }
+      }
+    });
+    </script>
+
+    <br>
+
+    <p class="font padding">
+      For the second verison of my chart, I added a border using the <b>borderWidth</b> and <b>borderColor</b> properties. I also removed the background grid by removing the <b>scales</b> property, so there are less unnecessary lines to distract you from the chart. I lowered the opacity of the background colors by setting the <b>backgroundColor</b> property's last argument to 0.35, so that it is easier to see the two distinct areas. Lastly, I added a title to explain what the chart is representing by adding the <b>title</b> configuration to the options section. 
+    </p>
+
+    <br>
+
+    <h1 class="font center">Version 3</h1>
+
+    <canvas id="myChart3" width="300" height="160"></canvas>
+    <script>
+    var ctx = document.getElementById('myChart3').getContext('2d');
+    var myChart3 = new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: ['Twitter', 'Instagram', 'Reddit', 'TikTok', 'Snapchat', 'Messages', 'Spotify'],
+        datasets: [{
+            label: 'Week of 2/28',
+            data: [330, 300, 233, 214, 160, 156, 200],
+            backgroundColor: [
+            'rgba(75, 192, 192, 0.35)',
+            'rgba(75, 192, 192, 0.35)',
+            'rgba(75, 192, 192, 0.35)',
+            'rgba(75, 192, 192, 0.35)',
+            'rgba(75, 192, 192, 0.35)',
+            'rgba(75, 192, 192, 0.35)',
+            'rgba(75, 192, 192, 0.35)',
+            ],
+            hoverBackgroundColor: [
+            'rgba(75, 192, 192, 0.9)',
+            'rgba(75, 192, 192, 0.9)',
+            'rgba(75, 192, 192, 0.9)',
+            'rgba(75, 192, 192, 0.9)',
+            'rgba(75, 192, 192, 0.9)',
+            'rgba(75, 192, 192, 0.9)',
+            'rgba(75, 192, 192, 0.9)',
+            ],
+            borderWidth: 1,
+            borderColor: ['rgba(75, 192, 192, 1)'],
+            pointBackgroundColor: [
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            ],
+            pointRadius: 6,
+            pointHoverBackgroundColor: [
+            'rgba(75, 192, 192, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(75, 192, 192, 1)',
+            ],
+            pointHoverBorderColor: [
+            'rgba(75, 192, 192, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(75, 192, 192, 1)'
+            ],
+            pointHoverRadius: 8
+        }, {
+            label: 'Week of 2/21',
+            data: [300, 242, 259, 30, 173, 290, 255],
+            backgroundColor: [
+            'rgba(153, 102, 255, 0.35)',
+            'rgba(153, 102, 255, 0.35)',
+            'rgba(153, 102, 255, 0.35)',
+            'rgba(153, 102, 255, 0.35)',
+            'rgba(153, 102, 255, 0.35)',
+            'rgba(153, 102, 255, 0.35)',
+            'rgba(153, 102, 255, 0.35)',
+            ],
+            hoverBackgroundColor: [
+            'rgba(153, 102, 255, 0.9)',
+            'rgba(153, 102, 255, 0.9)',
+            'rgba(153, 102, 255, 0.9)',
+            'rgba(153, 102, 255, 0.9)',
+            'rgba(153, 102, 255, 0.9)',
+            'rgba(153, 102, 255, 0.9)',
+            'rgba(153, 102, 255, 0.9)',
+            ],
+            borderWidth: 1,
+            borderColor: ['rgba(153, 102, 255, 1)'],
+            pointBackgroundColor: [
+            'rgba(153, 102, 255, 0.5)',
+            'rgba(153, 102, 255, 0.5)',
+            'rgba(153, 102, 255, 0.5)',
+            'rgba(153, 102, 255, 0.5)',
+            'rgba(153, 102, 255, 0.5)',
+            'rgba(153, 102, 255, 0.5)',
+            'rgba(153, 102, 255, 0.5)',
+            ],
+            pointRadius: 6,
+            pointHoverBackgroundColor: [
+            'rgba(153, 102, 255, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(153, 102, 255, 1)',
+            ],
+            pointHoverBorderColor: [
+            'rgba(153, 102, 255, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(153, 102, 255, 1)',
+            ],
+            pointHoverRadius: 8
+        }]
+    },
+    options: {
+      legend: {
+        labels: {
+          fontSize: 18
+        }
+      },
+      title: {
+        display: true,
+        text: 'Total Weekly Screen Time in Minutes by App',
+        fontSize: 26
+        }
+      }
+    });
+    </script>
+
+    <br>
+
+    <p class="font padding">
+      For my final version, I decided to change the size and colors of the dots so they were easier to see. I did this by using the <b>pointBackgroundColor</b> and <b>pointRadius</b> properties. To improve the interactivity of the chart, I changed the hover interactions. By increasing <b>pointHoverRadius</b>, the size of the points increases when you hover over it, telling you that you're looking at a specific point. I also added <b>pointHoverBackgroundColor</b> and <b>pointHoverBorderColor</b> to show the point with a darker opacity when you are hovering over it with your mouse. Lastly, I increased the legend's font size in the <b>options</b> property. 
+    </p>
+
+    <br>
+    <br>
+
+  </body>
+</html>
