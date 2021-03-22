@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      .pgph {text-indent: 40px; padding-right: 100px; padding-left: 100px}
+      .padding {padding-right: 140px; padding-left: 140px}
+      .center {text-align: center;}
+      .font {font-family: 'Verdana'}
+      .pfont {font-family: 'Verdana'; font-size: 16px;}
+      .title {font-family: 'Georgia'; font-size: 50px; text-align: center;}
+
+      .nav {background-color: #0e1c3a;}
+      .nav a {float: center; display: block; color: white; text-align: center; font-family: Verdana;}
+      .nav a:hover {background-color: #7a97b3; color: white;}
+      .nav a:active {background-color: #7a97b3; color: black;}
+    </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Weekly Assignment 8</title>
+
+  </head>
+
+  <body>
+    <br>
+    <h1 class="font center">
+      Weekly Assignment 8
+    </h1>
+    <p class="font padding">
+      Using Pandas, I read in the Denver police stop data from November. I then filtered the data to include only the rows including information on the district and type of stop ("vehicular" or "pedestrian"). Finally, I aggregated the data by creating a pivot table that counts the number of rows that each type of stop occurred in each district. 
+      <br>
+      <a href="https://github.com/lee-erica/lee-erica.github.io/blob/master/wa8.ipynb"><b>Click here to view my code.</b></a>
+    </p>
+    <br>
+
+    <canvas id="myChart"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+    $.getJSON("denverjson.json", function(data_from_file){
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        console.log(data_from_file)
+
+        var chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['District 1','District 2','District 3','District 4','District 5','District 6','District 7','None'],
+                datasets: [{
+                    label: 'pedestrian',
+                    backgroundColor: 'rgb(255, 99, 200)',
+                    data: 
+                    [data_from_file['pedestrian']["1"],
+                    data_from_file['pedestrian']["2"],
+                    data_from_file['pedestrian']["3"],
+                    data_from_file['pedestrian']["4"],
+                    data_from_file['pedestrian']["5"],
+                    data_from_file['pedestrian']["6"],
+                    data_from_file['pedestrian']["7"],
+                    data_from_file['pedestrian']["None"]],
+                },
+                {
+                    label: 'vehicular',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    data: 
+                    [data_from_file['vehicular']["1"],
+                    data_from_file['vehicular']["2"],
+                    data_from_file['vehicular']["3"],
+                    data_from_file['vehicular']["4"],
+                    data_from_file['vehicular']["5"],
+                    data_from_file['vehicular']["6"],
+                    data_from_file['vehicular']["7"],
+                    data_from_file['vehicular']["None"]]
+                }]
+            },
+
+            options: {
+              scales: {
+                yAxes: [{stacked: true}],
+                yAxes: [{stacked: true}]
+              },
+              title: {
+                display: true,
+                text: 'Number of Vehicular and Pedestrian Police Stops by District in November',
+                fontSize: 26
+              }
+            }
+        }) 
+    })
+    </script>
+
+    <br>
+    <p class="font padding">
+      Based on this chart, the most stops were made in District 2. District 2 is one of the most populated areas of Denver, encompassing City Park as well as 8 different neighborhoods like East Colfax and Park Hill. The least amount of stops were made in District 7, which is where DIA is located. There isn't much residential or commercial life in District 7 because it's out where the major airport is located. Districts 1 and 4 both had large amounts of stops. In most districts besides District 6, more vehicular stops were made than pedestrian stops. This may be because District 6 is where the 16th Street Mall, Cheesman Park, and Civic Center Park are located, all places which attract a lot of foot traffic. In the future, I would try to examine the outcome of the stops and if more arrests are made in different districts. 
+    </p>
+    <br>
+
+  </body>
+</html>
