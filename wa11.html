@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Weekly Assignment 11</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/blood.min.css">
+		
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
+
+		<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>Weekly Assignment 11</h3>
+				</section>
+
+				<section>
+					<h4>Introduction</h4>
+					<p>For Weekly Assignment 11, I chose to use the <a href="https://vega.github.io/vega-datasets/data/driving.json">"driving.json"</a> file from the existing <a href="https://github.com/vega/vega-datasets/blob/master/SOURCES.md">Vega datasets</a>. There is information on amount of miles driven per year as well as average gas prices per year.</p>
+				</section>
+				
+				<section data-transition="slide">
+					<h4>Visualizaton 1</h4>
+					<div id="vis"></div>
+					<script type="text/javascript">
+						var spec = {
+						  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+						  "config": {
+						    "view": {
+						      "continuousHeight": 200,
+						      "continuousWidth": 300
+						    }
+						  },
+							"width": 800,
+		  					"height": 400,
+						  "data": {
+						    "url": "https://vega.github.io/vega-datasets/data/driving.json"
+						  },
+						  	"encoding": {
+						    "x": {
+						     	"field": "year"
+						    },
+						    "y": {
+						      "field": "miles",
+						      "type": "quantitative"
+						    }
+						  },
+						  "mark": "line",
+						  "title": {
+						  	"text": "Number of Miles Driven per Year"
+						  }
+						}; 
+						var opt = {"renderer": "canvas", "actions": false};  
+						vegaEmbed("#vis", spec, opt);
+					</script>
+				</section>
+
+				<section data-transition="slide">
+					<h4>Visualization 2</h4>
+					<div id="vis2"></div>
+					<script type="text/javascript">
+						var spec = {
+						  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+						  "config": {
+						    "view": {
+						      "continuousHeight": 200,
+						      "continuousWidth": 400
+						    },
+						    "axis": {
+						    	"grid": true
+						    }
+						  },
+							"width": 800,
+		  					"height": 400,
+						  "data": {
+						    "url": "https://vega.github.io/vega-datasets/data/driving.json"
+						  },
+						  	"encoding": {
+						    "x": {
+						      "field": "miles",
+						      "type": "quantitative"
+						    },
+						    "y": {
+						      "field": "gas",
+						      "type": "quantitative"
+						    }
+						  },
+						  "mark": {
+						  	"type": "point",
+						  	"filled": true
+						  },
+						  "title": {
+						  	"text": "Gas Prices and Miles Driven Per Year"
+						  }
+						}; 
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#vis2", spec, opt);
+					</script>
+				</section>
+
+				<section data-transition="zoom">
+					<h4>Code for Visualization 1</h4>
+					<p>In my first visualization, I chose to add a title to the chart. I did this by using the "title" directive to my code. The code is highlighted below.</p>
+  					<pre><code class="html" data-trim data-line-numbers="26-28"><script type="text/template">
+						<div id="vis"></div>
+						<script type="text/javascript">
+						var spec = {
+						  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+						  "config": {
+						    "view": {
+						      "continuousHeight": 200,
+						      "continuousWidth": 300
+						    }
+						  },
+							"width": 800,
+		  					"height": 400,
+						  "data": {
+						    "url": "https://vega.github.io/vega-datasets/data/driving.json"
+						  },
+						  	"encoding": {
+						    "x": {
+						     	"field": "year"
+						    },
+						    "y": {
+						      "field": "miles",
+						      "type": "quantitative"
+						    }
+						  },
+						  "mark": "line",
+						  "title": {
+						  	"text": "Number of Miles Driven per Year"
+						  }
+						}; 
+						var opt = {"renderer": "canvas", "actions": false};  
+						vegaEmbed("#vis", spec, opt);
+					< /script>
+  					</script></code></pre>
+				</section>
+
+				<section data-transition="zoom">
+					<h4>Code for Visualization 2</h4>
+					<p>For my second visualization, I made the points filled in so they were easier to see. You can do this by adding the "filled" property in the "mark" directive and setting it to True.</p>
+  					<pre><code class="html" data-trim data-line-numbers="30"><script type="text/template">
+						<div id="vis2"></div>
+					<script type="text/javascript">
+						var spec = {
+						  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+						  "config": {
+						    "view": {
+						      "continuousHeight": 200,
+						      "continuousWidth": 400
+						    },
+						    "axis": {
+						    	"grid": true
+						    }
+						  },
+							"width": 800,
+		  					"height": 400,
+						  "data": {
+						    "url": "https://vega.github.io/vega-datasets/data/driving.json"
+						  },
+						  	"encoding": {
+						    "x": {
+						      "field": "miles",
+						      "type": "quantitative"
+						    },
+						    "y": {
+						      "field": "gas",
+						      "type": "quantitative"
+						    }
+						  },
+						  "mark": {
+						  	"type": "point",
+						  	"filled": true
+						  },
+						  "title": {
+						  	"text": "Gas Prices and Miles Driven Per Year"
+						  }
+						}; 
+						var opt = {"renderer": "canvas", "actions": false};
+						vegaEmbed("#vis2", spec, opt);
+					< /script>
+  					</script></code></pre>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Interpretation of Visualizations</h4>
+					<p>Based on the first visualization, there is a clear upwards trend in the amount of miles that are driven per year. This is likely, as more automobiles became widely available as time passed. In my second visualization, it is apparent that gas prices go up as the amount of miles driven goes up. However, at 8,000-9,000 miles, the gas prices go down, which is an interesting observation. </p>
+				</section>	
+
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/notes/notes.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/markdown/markdown.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'c/t',
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
