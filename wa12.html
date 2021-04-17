@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Weekly Assignment 12</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/night.min.css">
+		
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
+
+		<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h3>Weekly Assignment 12</h3>
+				</section>
+
+				<section>
+					<h4>Introduction</h4>
+					<p>For Weekly Assignment 12, I chose to use the <a href="https://vega.github.io/vega-datasets/data/wheat.json">"wheat.json"</a> file from the existing <a href="https://github.com/vega/vega-datasets/blob/master/SOURCES.md">Vega datasets</a>. According to the documentation, this source comes from William Playfair, a Scottish engineer who is often credited as the founder of statistical graphics, who plotted 250 years of wheat prices alongside weekly wages and the reigning monarch.</p>
+				</section>
+
+				<section data-transition="slide">
+					<h4>Visualization 1</h4>
+					<div id="vis1"></div>
+					<script type="text/javascript">
+						var spec = {
+						  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+						  "config": {
+						    "view": {
+						      "continuousHeight": 200,
+						      "continuousWidth": 300
+						    }
+						  },
+							"width": 800,
+		  					"height": 400,
+		  					"config": {
+								"font":"cursive"
+							},
+						  "data": {
+						    "url": "https://vega.github.io/vega-datasets/data/wheat.json"
+						  },
+						  	"encoding": {
+						    "x": {
+						     	"field": "year"
+						    },
+						    "y": {
+						      "field": "wheat",
+						      "type": "quantitative"
+						    }
+						  },
+						  "mark": {
+						  	"type":"line",
+						  	"color":"gold"
+						  },
+						  "title": {
+						  	"text": "Price of Wheat from 1565-1820"
+						  }
+						}; 
+						var opt = {"renderer": "canvas", "actions": false};  
+						vegaEmbed("#vis1", spec, opt);
+					</script>
+				</section>
+				
+				<section data-transition="slide">
+					<h4>Visualizaton 2</h4>
+					<div id="vis2"></div>
+					<script type="text/javascript">
+						var spec = {
+						  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+						  "config": {
+						    "view": {
+						      "continuousHeight": 200,
+						      "continuousWidth": 300
+						    }
+						  },
+							"width": 800,
+		  					"height": 400,
+		  					"config": {
+								"font":"cursive"
+							},
+						  "data": {
+						    "url": "https://vega.github.io/vega-datasets/data/wheat.json"
+						  },
+						"layer":[{
+							"mark": "line",
+							"encoding":{
+								"x":{
+									"field":"year",
+									"type":"temporal"
+								},
+								"y":{
+									"field":"wheat",
+									"type":"quantitative"
+								},
+								"color": {"value":"gold"}
+							}
+						},{
+							"mark": "line",
+							"encoding":{
+								"x":{
+									"field":"year",
+									"type":"temporal"
+								},
+								"y":{
+									"field":"wages",
+									"type":"quantitative"
+								},
+								"color": {"value":"green"}
+							}
+						}],
+						  "title": {
+						  	"text": "Price of Wheat from 1565-1820"
+						  }
+						}; 
+						var opt = {"renderer": "canvas", "actions": false};  
+						vegaEmbed("#vis2", spec, opt);
+					</script>
+				</section>
+
+				<section data-transition="zoom">
+					<h4>Code for Visualization 1</h4>
+					<p>In my first visualization, I chose to change the font of the graph to cursive. Since the data is from several centuries ago, I thought the font matched the time period. I also changed the color of the line to gold to match the color of wheat.</p>
+  					<pre><code class="html" data-trim data-line-numbers="13-15,28-31"><script type="text/template">
+						<div id="vis1"></div>
+						<script type="text/javascript">
+						var spec = {
+						  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+						  "config": {
+						    "view": {
+						      "continuousHeight": 200,
+						      "continuousWidth": 300
+						    }
+						  },
+							"width": 800,
+		  					"height": 400,
+		  					"config": {
+								"font":"cursive"
+							},
+						  "data": {
+						    "url": "https://vega.github.io/vega-datasets/data/wheat.json"
+						  },
+						  	"encoding": {
+						    "x": {
+						     	"field": "year"
+						    },
+						    "y": {
+						      "field": "wheat",
+						      "type": "quantitative"
+						    }
+						  },
+						  "mark": {
+						  	"type":"line",
+						  	"color":"gold"
+						  },
+						  "title": {
+						  	"text": "Price of Wheat from 1565-1820"
+						  }
+						}; 
+						var opt = {"renderer": "canvas", "actions": false};  
+						vegaEmbed("#vis1", spec, opt);
+					< /script>
+  					</script></code></pre>
+				</section>
+
+				<section data-transition="zoom">
+					<h4>Code for Visualization 2</h4>
+					<p>For my second visualization, I added wages by layering another section into encoding. This way, we can see how wages have changed in relation to the wheat prices.</p>
+  					<pre><code class="html" data-trim data-line-numbers="19-45"><script type="text/template">
+						<div id="vis2"></div>
+						<script type="text/javascript">
+						var spec = {
+						  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+						  "config": {
+						    "view": {
+						      "continuousHeight": 200,
+						      "continuousWidth": 300
+						    }
+						  },
+							"width": 800,
+		  					"height": 400,
+		  					"config": {
+								"font":"cursive"
+							},
+						  "data": {
+						    "url": "https://vega.github.io/vega-datasets/data/wheat.json"
+						  },
+						"layer":[{
+							"mark": "line",
+							"encoding":{
+								"x":{
+									"field":"year",
+									"type":"temporal"
+								},
+								"y":{
+									"field":"wheat",
+									"type":"quantitative"
+								},
+								"color": {"value":"gold"}
+							}
+						},{
+							"mark": "line",
+							"encoding":{
+								"x":{
+									"field":"year",
+									"type":"temporal"
+								},
+								"y":{
+									"field":"wages",
+									"type":"quantitative"
+								},
+								"color": {"value":"green"}
+							}
+						}],
+						  "title": {
+						  	"text": "Price of Wheat from 1565-1820"
+						  }
+						}; 
+						var opt = {"renderer": "canvas", "actions": false};  
+						vegaEmbed("#vis2", spec, opt);
+					</ script>
+  					</script></code></pre>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Interpretation of Visualizations</h4>
+					<p>Based on my visualizations, it is clear that William Playfair was correct in that wheat was never cheap, because of the upwards trend in labor as shown by the data in wages. As wheat prices went up, so did the wages of those who were involved in mechanial labor to produce the wheat. This was an interesting set of data to understand how labor and profits go hand in hand.</p>
+				</section>	
+
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/notes/notes.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/markdown/markdown.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'c/t',
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
